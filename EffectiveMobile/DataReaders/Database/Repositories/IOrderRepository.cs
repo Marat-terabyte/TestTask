@@ -1,6 +1,6 @@
-﻿using EffectiveMobile.Database.Models;
+﻿using EffectiveMobile.DataReaders.Database.Models;
 
-namespace EffectiveMobile.Database.Repositories
+namespace EffectiveMobile.DataReaders.Database.Repositories
 {
     internal interface IOrderRepository : IDisposable
     {

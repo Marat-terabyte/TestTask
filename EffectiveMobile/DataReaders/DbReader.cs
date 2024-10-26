@@ -1,5 +1,5 @@
-﻿using EffectiveMobile.Database.Models;
-using EffectiveMobile.Database.Repositories;
+﻿using EffectiveMobile.DataReaders.Database.Models;
+using EffectiveMobile.DataReaders.Database.Repositories;
 
 namespace EffectiveMobile.DataReaders
 {

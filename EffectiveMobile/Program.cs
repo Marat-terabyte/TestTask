@@ -1,10 +1,9 @@
-﻿using EffectiveMobile.Database;
-using EffectiveMobile.Database.Models;
-using EffectiveMobile.Database.Repositories;
-using EffectiveMobile.DataReaders;
+﻿using EffectiveMobile.Validators;
 using EffectiveMobile.Loggers;
+using EffectiveMobile.DataReaders;
+using EffectiveMobile.DataReaders.Factories;
+using EffectiveMobile.DataReaders.Database.Models;
 using EffectiveMobile.ResultWriters;
-using EffectiveMobile.Validators;
 using System.Globalization;
 
 namespace EffectiveMobile
@@ -29,10 +28,9 @@ namespace EffectiveMobile
             CultureInfo culture = CultureInfo.InvariantCulture;
             DateTime deliveryTime = DateTime.ParseExact(firstDelivDateTime, "yyyy-MM-dd HH:mm:ss", culture);
 
-            ApplicationContext context = new ApplicationContext(logger);
-            IOrderRepository orderRepository = new OrderRepository(context, logger);
-            
-            using IDataReader reader = new DbReader(orderRepository);
+            DataReaderFactory dataReaderFactory = new DbReaderFactory(logger);
+
+            using IDataReader reader = dataReaderFactory.Create();
             ICollection<Order> orders = reader.GetOrders(cityDistrict, deliveryTime);
 
             using IResultWriter<Order> resultWriter = new FileResWriter(logger);

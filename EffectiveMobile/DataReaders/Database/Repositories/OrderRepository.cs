@@ -1,7 +1,8 @@
-﻿using EffectiveMobile.Database.Models;
+﻿using EffectiveMobile.DataReaders.Database;
+using EffectiveMobile.DataReaders.Database.Models;
 using EffectiveMobile.Loggers;
 
-namespace EffectiveMobile.Database.Repositories
+namespace EffectiveMobile.DataReaders.Database.Repositories
 {
     internal class OrderRepository : IOrderRepository
     {

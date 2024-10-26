@@ -1,4 +1,4 @@
-﻿using EffectiveMobile.Database.Models;
+﻿using EffectiveMobile.DataReaders.Database.Models;
 using EffectiveMobile.Loggers;
 using System.Text;
 

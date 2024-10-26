@@ -1,15 +1,15 @@
-﻿using EffectiveMobile.Database.Models;
+﻿using EffectiveMobile.DataReaders.Database.Models;
 using EffectiveMobile.Loggers;
 using Microsoft.EntityFrameworkCore;
 
-namespace EffectiveMobile.Database
+namespace EffectiveMobile.DataReaders.Database
 {
     internal class ApplicationContext : DbContext
     {
         private string _dataSource = "EffectiveMobile.sqlite";
         private ILogger _logger;
-        public DbSet<Order> Orders 
-        { 
+        public DbSet<Order> Orders
+        {
             get => Set<Order>();
         }
 

@@ -1,4 +1,4 @@
-﻿using EffectiveMobile.Database.Models;
+﻿using EffectiveMobile.DataReaders.Database.Models;
 
 namespace EffectiveMobile.DataReaders
 {

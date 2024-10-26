@@ -1,4 +1,4 @@
-﻿namespace EffectiveMobile.Database.Models
+﻿namespace EffectiveMobile.DataReaders.Database.Models
 {
     internal class Order
     {
