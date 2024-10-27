@@ -6,8 +6,10 @@ namespace EffectiveMobile.DataReaders.Database
 {
     internal class ApplicationContext : DbContext
     {
-        private string _dataSource = "EffectiveMobile.sqlite";
         private ILogger _logger;
+
+        public string DataSource { get => "EffectiveMobile.sqlite"; }
+
         public DbSet<Order> Orders
         {
             get => Set<Order>();
@@ -21,7 +23,7 @@ namespace EffectiveMobile.DataReaders.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Data Source={_dataSource}");
+            optionsBuilder.UseSqlite($"Data Source={DataSource}");
             optionsBuilder.LogTo(_logger.Log, new[] { DbLoggerCategory.Database.Command.Name });
         }
     }

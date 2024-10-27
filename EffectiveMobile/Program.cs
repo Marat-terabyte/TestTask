@@ -25,8 +25,7 @@ namespace EffectiveMobile
             string cityDistrict = args[0];
             string firstDelivDateTime = args[1] + ' ' + args[2];
 
-            CultureInfo culture = CultureInfo.InvariantCulture;
-            DateTime deliveryTime = DateTime.ParseExact(firstDelivDateTime, "yyyy-MM-dd HH:mm:ss", culture);
+            DateTime deliveryTime = DateTime.ParseExact(firstDelivDateTime, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
             DataReaderFactory dataReaderFactory = new DbReaderFactory(logger);
 

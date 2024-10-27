@@ -5,7 +5,7 @@ namespace EffectiveMobile.DataReaders
 {
     internal class DbReader : IDataReader
     {
-        private bool _disposed = false;
+        private bool _disposed;
         
         private IOrderRepository _orderRepository;
 

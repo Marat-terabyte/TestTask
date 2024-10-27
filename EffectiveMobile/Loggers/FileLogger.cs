@@ -4,18 +4,11 @@ namespace EffectiveMobile.Loggers
 {
     internal class FileLogger : ILogger
     {
-        private bool _disposed;
-
-        private string _logFile = "_deliveryLog";
-
-        public FileLogger()
-        {
-            _disposed = false;
-        }
+        public string LogFile { get => "_deliveryLog"; }
 
         public void Log(string msg)
         {
-            File.AppendAllText(_logFile, msg + '\n');
+            File.AppendAllText(LogFile, msg + '\n');
         }
     }
 }

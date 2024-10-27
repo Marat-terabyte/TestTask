@@ -7,17 +7,16 @@ namespace EffectiveMobile.ResultWriters
     internal class FileResWriter : IResultWriter<Order>
     {
         private bool _disposed;
-
-        private static string _fileResult = "_deliveryOrder";
-        private Stream _stream;
         
+        private Stream _stream;
         private ILogger _logger;
+
+        public string FileResult { get => "_deliveryOrder"; }
 
         public FileResWriter(ILogger logger)
         {
             _logger = logger;
-            _disposed = false;
-            _stream = new FileStream(_fileResult, FileMode.Create);
+            _stream = new FileStream(FileResult, FileMode.Create);
         }
 
         public void Write(ICollection<Order> values)
