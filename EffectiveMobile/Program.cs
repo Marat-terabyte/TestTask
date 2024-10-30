@@ -5,6 +5,7 @@ using EffectiveMobile.DataReaders.Factories;
 using EffectiveMobile.DataReaders.Database.Models;
 using EffectiveMobile.ResultWriters;
 using System.Globalization;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EffectiveMobile
 {
@@ -12,7 +13,9 @@ namespace EffectiveMobile
     {
         static void Main(string[] args)
         {
-            ILogger logger = new FileLogger();
+            ServiceProvider provider = Startup.ConfigureServices();
+            
+            ILogger logger = provider.GetRequiredService<ILogger>();
 
             if (!InputValidator.TryValidate(args, out string? msg))
             {
@@ -27,12 +30,12 @@ namespace EffectiveMobile
 
             DateTime deliveryTime = DateTime.ParseExact(firstDelivDateTime, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
-            DataReaderFactory dataReaderFactory = new DbReaderFactory(logger);
+            DataReaderFactory dataReaderFactory = provider.GetRequiredService<DataReaderFactory>();
 
             using IDataReader reader = dataReaderFactory.Create();
             ICollection<Order> orders = reader.GetOrders(cityDistrict, deliveryTime);
 
-            using IResultWriter<Order> resultWriter = new FileResWriter(logger);
+            using IResultWriter<Order> resultWriter = provider.GetRequiredService<IResultWriter<Order>>();
             resultWriter.Write(orders);
         }
     }
