@@ -17,7 +17,7 @@ namespace EffectiveMobile.DataReaders.Database.Repositories
             _logger = logger;
         }
 
-        public ICollection<Order> GetOrders(string cityDistrict, DateTime firstDeliveryTime)
+        public IEnumerable<Order> GetOrders(string cityDistrict, DateTime firstDeliveryTime)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace EffectiveMobile.DataReaders.Database.Repositories
             }
         }
 
-        private ICollection<Order> FetchOrders(string cityDistrict, DateTime firstDeliveryTime)
+        private IEnumerable<Order> FetchOrders(string cityDistrict, DateTime firstDeliveryTime)
         {
             var orders = from o in _context.Orders
                          where o.CityDistrict == cityDistrict
@@ -42,7 +42,7 @@ namespace EffectiveMobile.DataReaders.Database.Repositories
                          orderby o.DeliveryTime
                          select o;
 
-            return orders.ToList();
+            return orders;
         }
 
         protected virtual void Dispose(bool disposing)

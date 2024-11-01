@@ -19,7 +19,7 @@ namespace EffectiveMobile.ResultWriters
             _stream = new FileStream(FileResult, FileMode.Create);
         }
 
-        public void Write(ICollection<Order> values)
+        public void Write(IEnumerable<Order> values)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace EffectiveMobile.ResultWriters
             }
         }
 
-        private async void WriteOrders(ICollection<Order> values)
+        private async void WriteOrders(IEnumerable<Order> values)
         {
             foreach (Order order in values)
             {

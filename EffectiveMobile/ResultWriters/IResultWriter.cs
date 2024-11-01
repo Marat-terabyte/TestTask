@@ -2,6 +2,6 @@
 {
     internal interface IResultWriter<T> : IDisposable
     {
-        public void Write(ICollection<T> values);
+        public void Write(IEnumerable<T> values);
     }
 }

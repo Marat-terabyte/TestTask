@@ -4,6 +4,6 @@ namespace EffectiveMobile.DataReaders.Database.Repositories
 {
     internal interface IOrderRepository : IDisposable
     {
-        public ICollection<Order> GetOrders(string cityDistrict, DateTime firstDeliveryTime);
+        public IEnumerable<Order> GetOrders(string cityDistrict, DateTime firstDeliveryTime);
     }
 }

@@ -33,7 +33,7 @@ namespace EffectiveMobile
             DataReaderFactory dataReaderFactory = provider.GetRequiredService<DataReaderFactory>();
 
             using IDataReader reader = dataReaderFactory.Create();
-            ICollection<Order> orders = reader.GetOrders(cityDistrict, deliveryTime);
+            IEnumerable<Order> orders = reader.GetOrders(cityDistrict, deliveryTime);
 
             using IResultWriter<Order> resultWriter = provider.GetRequiredService<IResultWriter<Order>>();
             resultWriter.Write(orders);

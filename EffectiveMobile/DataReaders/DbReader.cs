@@ -14,7 +14,7 @@ namespace EffectiveMobile.DataReaders
             _orderRepository = repository;
         }
 
-        public ICollection<Order> GetOrders(string cityDistrict, DateTime firstDeliveryTime) => _orderRepository.GetOrders(cityDistrict, firstDeliveryTime);
+        public IEnumerable<Order> GetOrders(string cityDistrict, DateTime firstDeliveryTime) => _orderRepository.GetOrders(cityDistrict, firstDeliveryTime);
 
         protected virtual void Dispose(bool disposing)
         {
